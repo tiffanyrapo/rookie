@@ -3,8 +3,7 @@ package com.tist.service;
 import com.tist.model.DemoForm;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 public class DemoFormService {
     public DemoForm generateUId(DemoForm demoForm) {
@@ -82,7 +81,24 @@ public class DemoFormService {
         int Q = (a + b) * (b + c) / (a + b + c);
         return Q;
     }
+
     //TODO:利用for迴圈製造一個list，list裡面都是亂數，回傳list
+    public List<Integer> testlist() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Random ran = new Random();
+            int input = ran.nextInt(100) + 1;
+            list.add(input);
+        }
+        return list;
+    }
 
     //TODO:輸入複數個list封裝到一個map，回傳map
+    public Map<Object, List<Integer>> map(List<List<Integer>> integerList) {
+        Map<Object, List<Integer>> map = new HashMap<>();
+        for(int i=0;i<integerList.size();i++){
+            map.put(i,integerList.get(i));
+        }
+        return map;
+    }
 }
